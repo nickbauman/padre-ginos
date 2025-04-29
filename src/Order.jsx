@@ -32,6 +32,7 @@ export default function Order() {
                   name="pizza-size"
                   value="S"
                   id="pizza-s"
+                  onChange={(e) => setPizzaSize(e.target.value)}
                 />
                 <label htmlFor="pizza-s">Small</label>
               </span>
@@ -42,6 +43,7 @@ export default function Order() {
                   name="pizza-size"
                   value="M"
                   id="pizza-m"
+                  onChange={(e) => setPizzaSize(e.target.value)}
                 />
                 <label htmlFor="pizza-m">Medium</label>
               </span>
@@ -50,8 +52,9 @@ export default function Order() {
                   checked={pizzaSize === "L"}
                   type="radio"
                   name="pizza-size"
-                  value="M"
+                  value="L"
                   id="pizza-l"
+                  onChange={(e) => setPizzaSize(e.target.value)}
                 />
                 <label htmlFor="pizza-l">Large</label>
               </span>
