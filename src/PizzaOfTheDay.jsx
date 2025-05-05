@@ -8,7 +8,7 @@ const intl = new Intl.NumberFormat("en-US", {
 const PizzaOfTheDay = () => {
   const pizzaOfTheDay = usePizzaOfTheDay();
 
-  if (!PizzaOfTheDay) {
+  if (!pizzaOfTheDay) {
     return <div>Loading...</div>;
   }
 
