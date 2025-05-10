@@ -3,8 +3,11 @@ import { useState, useEffect, useDebugValue } from "react";
 export const usePizzaOfTheDay = () => {
   const [pizzaOfTheDay, setPizzaOfTheDay] = useState(null);
   useDebugValue(
-    pizzaOfTheDay ? pizzaOfTheDay.name : "Loading pizza of the day...",
+    pizzaOfTheDay
+      ? `${pizzaOfTheDay.id} : ${pizzaOfTheDay.name}`
+      : "Loading...",
   );
+
   useDebugValue("1234");
 
   useEffect(() => {
