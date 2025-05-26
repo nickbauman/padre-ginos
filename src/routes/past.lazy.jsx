@@ -17,7 +17,7 @@ function PastOrdersRoute() {
   if (isLoading) {
     return (
       <div className="past-orders">
-        <h2>Loading ...</h2>
+        <h2>LOADING</h2>
       </div>
     );
   }
@@ -35,9 +35,9 @@ function PastOrdersRoute() {
         <tbody>
           {data.map((order) => (
             <tr key={order.order_id}>
-              <td>{order.order.id}</td>
-              <td>{order.order.date}</td>
-              <td>{order.order.time}</td>
+              <td>{order.order_id}</td>
+              <td>{order.date}</td>
+              <td>{order.time}</td>
             </tr>
           ))}
         </tbody>
@@ -46,6 +46,7 @@ function PastOrdersRoute() {
         <button disabled={page <= 1} onClick={() => setPage(page - 1)}>
           Previous
         </button>
+        <div>{page}</div>
         <button disabled={data.length < 10} onClick={() => setPage(page + 1)}>
           Next
         </button>
