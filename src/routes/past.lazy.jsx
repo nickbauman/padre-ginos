@@ -9,11 +9,20 @@ export const Route = createLazyFileRoute("/past")({
 
 function PastOrdersRoute() {
   const [page, setPage] = useState(1);
+  const { focusedOrder, setFocusOrder } = useState(null);
   const { isLoading, data } = useQuery({
     queryKey: ["past-orders", page],
     queryFn: () => getPastOrders(page),
-    staleTime: 1000 * 30,
+    staleTime: 1000 * 30, // 30 seconds
   });
+
+  const { isLoading: isLoadingPastOrder, data: pastOrderData } = useQuery({
+    queryKey: ["past-orders", focusedOrder],
+    queryFn: () => getPastOrders(focusedOrder),
+    staleTime: 24 * 60 * 60 * 1000, // 24 hours
+    enabled: !!focusedOrder, // Only run if focusedOrder is set
+  });
+
   if (isLoading) {
     return (
       <div className="past-orders">
