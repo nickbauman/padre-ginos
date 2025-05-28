@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const intl = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -29,9 +31,9 @@ export default function Cart({ cart, checkout }) {
       <ul>
         {cart.map((item, index) => (
           <li key={index}>
-            <span className="size">{sizeToPrice(item.size)}</span> -
-            <span className="type">{item.pizza.name}</span> -
-            <span className="price">{item.price}</span> -
+            <span className="size">{sizeToPrice(item.size)}</span>&nbsp;
+            <span className="type">{item.pizza.name}</span>&nbsp;
+            <span className="price">{item.price}</span>&nbsp;
           </li>
         ))}
       </ul>
@@ -40,3 +42,8 @@ export default function Cart({ cart, checkout }) {
     </div>
   );
 }
+
+Cart.propTypes = {
+  cart: PropTypes.array.isRequired,
+  checkout: PropTypes.func.isRequired,
+};
