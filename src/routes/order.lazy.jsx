@@ -3,9 +3,10 @@ import { createLazyFileRoute } from "@tanstack/react-router";
 import Pizza from "../Pizza";
 import Cart from "../Cart";
 import { CartContext } from "../contexts";
+import ErrorBoundary from "../ErrorBoundry";
 
 export const Route = createLazyFileRoute("/order")({
-  component: Order,
+  component: ErrorBoundaryWrappedOrderRoutes,
 });
 
 const intl = new Intl.NumberFormat("en-US", {
@@ -14,7 +15,15 @@ const intl = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
 });
 
-function Order() {
+function ErrorBoundaryWrappedOrderRoutes() {
+  return (
+    <ErrorBoundary>
+      <OrderRoute />
+    </ErrorBoundary>
+  );
+}
+
+function OrderRoute() {
   const [pizzaTypes, setPizzaTypes] = useState([]);
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
