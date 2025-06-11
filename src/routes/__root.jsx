@@ -6,21 +6,23 @@ import Header from "../Header";
 import PizzaOfTheDay from "../PizzaOfTheDay";
 import { CartContext } from "../contexts";
 
+const RootComponent = () => {
+  const cartHook = useState([]);
+  return (
+    <>
+      <CartContext.Provider value={cartHook}>
+        <div>
+          <Header />
+          <Outlet />
+          <PizzaOfTheDay />
+        </div>
+      </CartContext.Provider>
+      <TanStackRouterDevtools />
+      <ReactQueryDevtools />
+    </>
+  );
+};
+
 export const Route = createRootRoute({
-  component: () => {
-    const cartHook = useState([]);
-    return (
-      <>
-        <CartContext.Provider value={cartHook}>
-          <div>
-            <Header />
-            <Outlet />
-            <PizzaOfTheDay />
-          </div>
-        </CartContext.Provider>
-        <TanStackRouterDevtools />
-        <ReactQueryDevtools />
-      </>
-    );
-  },
+  component: RootComponent,
 });
