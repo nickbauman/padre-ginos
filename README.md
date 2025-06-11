@@ -11,17 +11,27 @@ A simple React application for a pizza restaurant built with React, TanStack Rou
 
 ### 1. Install Dependencies
 
+In the root of the project:
+
 ```bash
 npm install
 ```
 
 ### 2. Start the Development Server
 
+In the root of the project:
+
 ```bash
 npm run dev
 ```
 
-This will start both the app and API in development mode. The application will be available at `http://localhost:5173`.
+### 3. Run the backend node service
+
+```cd backend/
+npm install dev
+```
+
+ The application will be available at `http://localhost:5173`.
 
 ## Available Scripts
 
