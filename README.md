@@ -4,7 +4,7 @@ A simple React application for a pizza restaurant built with React, TanStack Rou
 
 ## Prerequisites
 
-- Node.js (version 16 or higher)
+- Node.js (version 22 or higher)
 - npm
 
 ## Getting Started
@@ -28,7 +28,11 @@ npm run dev
 ### 3. Run the backend node service
 
 ```cd backend/
-npm install dev
+npm install
+```
+
+```
+npm run dev
 ```
 
  The application will be available at `http://localhost:5173`.
@@ -58,7 +62,7 @@ npm install dev
 
 ## Tech Stack
 
-- React 18
+- React 18-19
 - TanStack Router for routing
 - TanStack Query for data fetching
 - Vite for build tooling
